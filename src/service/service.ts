@@ -1,6 +1,8 @@
+import { values } from './values';
+
 export const getValuesForGivenLambda = (lambda: number) => {
   if (lambda) {
-    // test
+    console.log(values);
   }
   return {};
 };
