@@ -1,3 +1,6 @@
 export const getValuesForGivenLambda = (lambda: number) => {
-    return {};
+  if (lambda) {
+    // test
+  }
+  return {};
 };

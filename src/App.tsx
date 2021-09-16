@@ -1,7 +1,7 @@
-import "./App.css";
+import './App.css';
 
 function App() {
-    return <>Acél méretezés</>;
+  return <>Acél méretezés</>;
 }
 
 export default App;
