@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/acel-meretezes/static/js/main.ac69169d.chunk.js",
+    "main.js.map": "/acel-meretezes/static/js/main.ac69169d.chunk.js.map",
+    "runtime-main.js": "/acel-meretezes/static/js/runtime-main.9500dfc5.js",
+    "runtime-main.js.map": "/acel-meretezes/static/js/runtime-main.9500dfc5.js.map",
+    "static/js/2.33be0e02.chunk.js": "/acel-meretezes/static/js/2.33be0e02.chunk.js",
+    "static/js/2.33be0e02.chunk.js.map": "/acel-meretezes/static/js/2.33be0e02.chunk.js.map",
+    "static/js/3.8c14e5b9.chunk.js": "/acel-meretezes/static/js/3.8c14e5b9.chunk.js",
+    "static/js/3.8c14e5b9.chunk.js.map": "/acel-meretezes/static/js/3.8c14e5b9.chunk.js.map",
+    "index.html": "/acel-meretezes/index.html",
+    "static/js/2.33be0e02.chunk.js.LICENSE.txt": "/acel-meretezes/static/js/2.33be0e02.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9500dfc5.js",
+    "static/js/2.33be0e02.chunk.js",
+    "static/js/main.ac69169d.chunk.js"
+  ]
+}
