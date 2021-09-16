@@ -33,7 +33,7 @@ function App() {
         style={{ maxWidth: '10rem', margin: '1rem' }}
         required
         id="filled-required"
-        label="Required"
+        label="λ"
         value={lambda}
         variant="outlined"
         onChange={handleChangeLambda}

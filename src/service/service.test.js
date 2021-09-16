@@ -28,7 +28,7 @@ test('when the value exists in table - case 3: lambda = 1', () => {
     a0: 0.7253,
     a: 0.6656,
     b: 0.597,
-    c: 0.5388,
+    c: 0.5399,
     d: 0.4671,
   });
 });
