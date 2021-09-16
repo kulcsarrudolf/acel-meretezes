@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 
+import { v4 as uuidv4 } from 'uuid';
+
 // import { values } from './service/values';
 import { getValuesForGivenLambda } from './service/service';
 
@@ -39,6 +41,7 @@ function App() {
 
       {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
         <TextField
+          key={uuidv4()}
           style={{ maxWidth: '10rem', margin: '1rem' }}
           variant="outlined"
           label={valueType}
