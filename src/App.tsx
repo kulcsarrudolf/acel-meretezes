@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { TextField, Grid, Paper, makeStyles, Typography } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -65,10 +66,11 @@ function App() {
               onChange={handleChangeLambda}
             />
 
-            {!isValidInput && <p>A λ értéke 0.2 és 3 között kell legyen.</p>}
+            {!isValidInput && (
+              <Alert severity="error">A λ értéke 0.2 és 3 között kell legyen.</Alert>
+            )}
           </Paper>
         </Grid>
-
         {isValidInput && (
           <>
             {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
@@ -89,6 +91,11 @@ function App() {
             ))}
           </>
         )}
+        <Grid item xs={12}>
+          <Typography className={classes.paper}>
+            <b>Készítette:</b> <i>Kulcsár Rudolf</i>
+          </Typography>
+        </Grid>
       </Grid>
     </>
   );
