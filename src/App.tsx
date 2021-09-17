@@ -1,17 +1,31 @@
 import { useState, useEffect } from 'react';
 
-import TextField from '@material-ui/core/TextField';
+import { TextField, Grid, Paper, makeStyles, Typography } from '@material-ui/core';
 
 import { v4 as uuidv4 } from 'uuid';
 
 // import { values } from './service/values';
 import { getValuesForGivenLambda } from './service/service';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: '0 auto',
+    maxWidth: '30rem',
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+  },
+}));
+
 function App() {
   // TODO: table component
   // const [allValues, setAllValues] = useState(values);
+  const classes = useStyles();
+
   const [currentValues, setCurrentValues] = useState<any>(getValuesForGivenLambda(1.8));
   const [lambda, setLambda] = useState('1.8');
+  const [isValidInput, setIsValidInput] = useState(true);
 
   const handleChangeLambda = (e: any) => {
     setLambda(e.target.value);
@@ -19,38 +33,63 @@ function App() {
 
   useEffect(() => {
     try {
+      setIsValidInput(true);
       setCurrentValues(getValuesForGivenLambda(parseFloat(lambda)));
     } catch (error) {
-      // do nothing
+      setIsValidInput(false);
     }
   }, [lambda]);
 
   return (
     <>
-      <h1>Acél méretezés</h1>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={3}
+        className={classes.root}
+      >
+        <Grid item xs={12} justifyContent="center" alignItems="center">
+          <Paper className={classes.paper}>
+            <Typography variant="h4" gutterBottom>
+              Acél méretezés
+            </Typography>
+            <TextField
+              style={{ maxWidth: '10rem', margin: '1rem' }}
+              required
+              id="filled-required"
+              label="λ"
+              value={lambda}
+              variant="outlined"
+              onChange={handleChangeLambda}
+            />
 
-      <TextField
-        style={{ maxWidth: '10rem', margin: '1rem' }}
-        required
-        id="filled-required"
-        label="λ"
-        value={lambda}
-        variant="outlined"
-        onChange={handleChangeLambda}
-      />
+            {!isValidInput && <p>A λ értéke 0.2 és 3 között kell legyen.</p>}
+          </Paper>
+        </Grid>
 
-      {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
-        <TextField
-          key={uuidv4()}
-          style={{ maxWidth: '10rem', margin: '1rem' }}
-          variant="outlined"
-          label={valueType}
-          value={currentValues[valueType]}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-      ))}
+        {isValidInput && (
+          <>
+            {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
+              <Grid item xs={6} key={uuidv4()}>
+                <Paper className={classes.paper}>
+                  <TextField
+                    key={uuidv4()}
+                    style={{ maxWidth: '10rem', margin: '1rem' }}
+                    variant="outlined"
+                    label={valueType}
+                    value={currentValues[valueType]}
+                    InputProps={{
+                      readOnly: true,
+                    }}
+                  />
+                </Paper>
+              </Grid>
+            ))}
+          </>
+        )}
+      </Grid>
     </>
   );
 }
