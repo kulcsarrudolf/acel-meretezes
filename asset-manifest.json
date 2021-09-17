@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/acel-meretezes/static/js/main.56944f93.chunk.js",
-    "main.js.map": "/acel-meretezes/static/js/main.56944f93.chunk.js.map",
-    "runtime-main.js": "/acel-meretezes/static/js/runtime-main.2632c1e6.js",
-    "runtime-main.js.map": "/acel-meretezes/static/js/runtime-main.2632c1e6.js.map",
-    "static/js/2.8080e6df.chunk.js": "/acel-meretezes/static/js/2.8080e6df.chunk.js",
-    "static/js/2.8080e6df.chunk.js.map": "/acel-meretezes/static/js/2.8080e6df.chunk.js.map",
-    "static/js/3.069ec6ce.chunk.js": "/acel-meretezes/static/js/3.069ec6ce.chunk.js",
-    "static/js/3.069ec6ce.chunk.js.map": "/acel-meretezes/static/js/3.069ec6ce.chunk.js.map",
+    "main.js": "/acel-meretezes/static/js/main.3f9af809.chunk.js",
+    "main.js.map": "/acel-meretezes/static/js/main.3f9af809.chunk.js.map",
+    "runtime-main.js": "/acel-meretezes/static/js/runtime-main.ad43efae.js",
+    "runtime-main.js.map": "/acel-meretezes/static/js/runtime-main.ad43efae.js.map",
+    "static/js/2.2b70c330.chunk.js": "/acel-meretezes/static/js/2.2b70c330.chunk.js",
+    "static/js/2.2b70c330.chunk.js.map": "/acel-meretezes/static/js/2.2b70c330.chunk.js.map",
+    "static/js/3.91d19a6b.chunk.js": "/acel-meretezes/static/js/3.91d19a6b.chunk.js",
+    "static/js/3.91d19a6b.chunk.js.map": "/acel-meretezes/static/js/3.91d19a6b.chunk.js.map",
     "index.html": "/acel-meretezes/index.html",
-    "static/js/2.8080e6df.chunk.js.LICENSE.txt": "/acel-meretezes/static/js/2.8080e6df.chunk.js.LICENSE.txt"
+    "static/js/2.2b70c330.chunk.js.LICENSE.txt": "/acel-meretezes/static/js/2.2b70c330.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.2632c1e6.js",
-    "static/js/2.8080e6df.chunk.js",
-    "static/js/main.56944f93.chunk.js"
+    "static/js/runtime-main.ad43efae.js",
+    "static/js/2.2b70c330.chunk.js",
+    "static/js/main.3f9af809.chunk.js"
   ]
 }
