@@ -72,24 +72,38 @@ function App() {
           </Paper>
         </Grid>
         {isValidInput && (
-          <>
-            {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
-              <Grid item xs={6} key={uuidv4()}>
-                <Paper className={classes.paper}>
-                  <TextField
-                    key={uuidv4()}
-                    style={{ maxWidth: '10rem', margin: '1rem' }}
-                    variant="outlined"
-                    label={valueType}
-                    value={currentValues[valueType]}
-                    InputProps={{
-                      readOnly: true,
-                    }}
-                  />
-                </Paper>
+          <Grid item xs={12} justifyContent="center" alignItems="center">
+            <Paper className={classes.paper}>
+              <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                spacing={3}
+              >
+                {/* {isValidInput && ( */}
+                <>
+                  {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
+                    <Grid item xs={6} key={uuidv4()}>
+                      <Paper className={classes.paper}>
+                        <TextField
+                          key={uuidv4()}
+                          style={{ maxWidth: '10rem', margin: '1rem' }}
+                          variant="outlined"
+                          label={valueType}
+                          value={currentValues[valueType]}
+                          InputProps={{
+                            readOnly: true,
+                          }}
+                        />
+                      </Paper>
+                    </Grid>
+                  ))}
+                </>
+                {/* )} */}
               </Grid>
-            ))}
-          </>
+            </Paper>
+          </Grid>
         )}
         <Grid item xs={12}>
           <Typography className={classes.paper}>
