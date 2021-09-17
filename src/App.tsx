@@ -99,6 +99,7 @@ function App() {
               label="λ"
               value={lambda}
               variant="outlined"
+              type="number"
               onChange={handleChangeLambda}
             />
             <Alert severity="info">
@@ -121,24 +122,24 @@ function App() {
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
-                spacing={3}
+                spacing={1}
               >
                 {/* {isValidInput && ( */}
                 <>
                   {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
-                    <Grid item xs={6} key={uuidv4()}>
-                      <Paper className={classes.paper}>
-                        <TextField
-                          key={uuidv4()}
-                          style={{ maxWidth: '10rem', margin: '1rem' }}
-                          variant="outlined"
-                          label={valueType}
-                          value={currentValues[valueType]}
-                          InputProps={{
-                            readOnly: true,
-                          }}
-                        />
-                      </Paper>
+                    <Grid item sm={6} xs={12} key={uuidv4()}>
+                      {/* <Paper className={classes.paper}> */}
+                      <TextField
+                        key={uuidv4()}
+                        style={{ margin: '1rem' }}
+                        variant="outlined"
+                        label={valueType}
+                        value={currentValues[valueType]}
+                        InputProps={{
+                          readOnly: true,
+                        }}
+                      />
+                      {/* </Paper> */}
                     </Grid>
                   ))}
                 </>
@@ -203,7 +204,12 @@ function App() {
 
         <Grid item xs={12}>
           <Typography className={classes.paper}>
-            <b>Készítette:</b> <i>Kulcsár Rudolf</i>
+            <b>Készítette:</b>{' '}
+            <i>
+              <a target="_blank" rel="noreferrer" href="https://kulcsarrudolf.com/">
+                Kulcsár Rudolf
+              </a>
+            </i>
           </Typography>
         </Grid>
       </Grid>
