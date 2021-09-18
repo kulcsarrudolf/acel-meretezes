@@ -1,26 +1,13 @@
 import { useState, useEffect } from 'react';
 
-import {
-  TextField,
-  Grid,
-  Paper,
-  makeStyles,
-  Typography,
-  Button,
-  TableRow,
-  TableCell,
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  withStyles,
-} from '@material-ui/core';
+import { TextField, Grid, Paper, makeStyles, Typography, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import { v4 as uuidv4 } from 'uuid';
 
-import { values } from './service/values';
+import ValuesTable from './components/ValuesTable';
+
 import { getValuesForGivenLambda } from './service/service';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,31 +19,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
   },
-  table: {
-    // minWidth: 650,
-  },
 }));
 
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
-
 function App() {
-  // const [allValues, setAllValues] = useState(values);
   const classes = useStyles();
 
   const [currentValues, setCurrentValues] = useState<any>(getValuesForGivenLambda(0.2));
@@ -124,7 +89,6 @@ function App() {
                 alignItems="center"
                 spacing={1}
               >
-                {/* {isValidInput && ( */}
                 <>
                   {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
                     <Grid item sm={6} xs={12} key={uuidv4()}>
@@ -139,11 +103,9 @@ function App() {
                           readOnly: true,
                         }}
                       />
-                      {/* </Paper> */}
                     </Grid>
                   ))}
                 </>
-                {/* )} */}
               </Grid>
             </Paper>
           </Grid>
@@ -161,44 +123,7 @@ function App() {
               Tablázat {showTable ? 'elrejtése' : 'megjelenítése'}
             </Button>
 
-            {showTable && (
-              <TableContainer component={Paper} style={{ marginTop: '1rem' }}>
-                <Table className={classes.table} aria-label="simple table">
-                  <TableHead>
-                    <StyledTableRow>
-                      <StyledTableCell align="center">λ</StyledTableCell>
-                      <StyledTableCell align="center">a0</StyledTableCell>
-                      <StyledTableCell align="center">a</StyledTableCell>
-                      <StyledTableCell align="center">b</StyledTableCell>
-                      <StyledTableCell align="center">c</StyledTableCell>
-                      <StyledTableCell align="center">d</StyledTableCell>
-                    </StyledTableRow>
-                  </TableHead>
-                  <TableBody>
-                    {values.map((row) => (
-                      <StyledTableRow key={uuidv4()}>
-                        <StyledTableCell align="center">{row.lambda}</StyledTableCell>
-                        <StyledTableCell align="center">{row.a0}</StyledTableCell>
-                        <StyledTableCell align="center">{row.a}</StyledTableCell>
-                        <StyledTableCell align="center">{row.b}</StyledTableCell>
-                        <StyledTableCell align="center">{row.c}</StyledTableCell>
-                        <StyledTableCell align="center">{row.d}</StyledTableCell>
-                      </StyledTableRow>
-                    ))}
-                  </TableBody>
-                  <TableHead>
-                    <StyledTableRow>
-                      <StyledTableCell align="center">λ</StyledTableCell>
-                      <StyledTableCell align="center">a0</StyledTableCell>
-                      <StyledTableCell align="center">a</StyledTableCell>
-                      <StyledTableCell align="center">b</StyledTableCell>
-                      <StyledTableCell align="center">c</StyledTableCell>
-                      <StyledTableCell align="center">d</StyledTableCell>
-                    </StyledTableRow>
-                  </TableHead>
-                </Table>
-              </TableContainer>
-            )}
+            {showTable && <ValuesTable />}
           </Paper>
         </Grid>
 
