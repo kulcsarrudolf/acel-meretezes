@@ -1,2 +1,2 @@
-export const formatDecimalNumbers = (decimalNumber: number) =>
+export const formatDecimalNumber = (decimalNumber: number) =>
   parseFloat(decimalNumber.toString()).toFixed(4);

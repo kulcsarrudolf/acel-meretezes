@@ -11,6 +11,7 @@ import {
 
 import { v4 as uuidv4 } from 'uuid';
 
+import { formatDecimalNumber } from '../service/formatDecimalNumber';
 import { values } from '../service/values';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -48,11 +49,11 @@ const ValuesTable = () => (
         {values.map((row: any) => (
           <StyledTableRow key={uuidv4()}>
             <StyledTableCell align="center">{row.lambda}</StyledTableCell>
-            <StyledTableCell align="center">{row.a0}</StyledTableCell>
-            <StyledTableCell align="center">{row.a}</StyledTableCell>
-            <StyledTableCell align="center">{row.b}</StyledTableCell>
-            <StyledTableCell align="center">{row.c}</StyledTableCell>
-            <StyledTableCell align="center">{row.d}</StyledTableCell>
+            <StyledTableCell align="center">{formatDecimalNumber(row.a0)}</StyledTableCell>
+            <StyledTableCell align="center">{formatDecimalNumber(row.a)}</StyledTableCell>
+            <StyledTableCell align="center">{formatDecimalNumber(row.b)}</StyledTableCell>
+            <StyledTableCell align="center">{formatDecimalNumber(row.c)}</StyledTableCell>
+            <StyledTableCell align="center">{formatDecimalNumber(row.d)}</StyledTableCell>
           </StyledTableRow>
         ))}
       </TableBody>

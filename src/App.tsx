@@ -9,12 +9,9 @@ import { v4 as uuidv4 } from 'uuid';
 import ValuesTable from './components/ValuesTable';
 
 import { getValuesForGivenLambda } from './service/service';
+import { formatDecimalNumber } from './service/formatDecimalNumber';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: '0 auto',
-    maxWidth: '32rem',
-  },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
@@ -44,15 +41,8 @@ function App() {
 
   return (
     <>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={2}
-        className={classes.root}
-      >
-        <Grid item xs={12} justifyContent="center" alignItems="center">
+      <Grid container direction="row" justifyContent="center" alignItems="center" spacing={2}>
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Typography variant="h4" gutterBottom>
               Acél méretezés
@@ -80,25 +70,18 @@ function App() {
           </Paper>
         </Grid>
         {isValidInput && (
-          <Grid item xs={12} justifyContent="center" alignItems="center">
+          <Grid item xs={12}>
             <Paper className={classes.paper}>
-              <Grid
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={1}
-              >
+              <Grid container direction="row" spacing={1}>
                 <>
                   {['a0', 'a', 'b', 'c', 'd'].map((valueType) => (
-                    <Grid item sm={6} xs={12} key={uuidv4()}>
-                      {/* <Paper className={classes.paper}> */}
+                    <Grid item md={2} sm={6} xs={12} key={uuidv4()}>
                       <TextField
                         key={uuidv4()}
                         style={{ margin: '1rem' }}
                         variant="outlined"
                         label={valueType}
-                        value={currentValues[valueType]}
+                        value={formatDecimalNumber(currentValues[valueType])}
                         InputProps={{
                           readOnly: true,
                         }}
@@ -110,7 +93,7 @@ function App() {
             </Paper>
           </Grid>
         )}
-        <Grid item xs={12} justifyContent="center" alignItems="center">
+        <Grid item xs={12}>
           <Paper className={classes.paper}>
             <Button
               variant="contained"
@@ -127,19 +110,27 @@ function App() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12}>
-          <Typography className={classes.paper}>
-            <b>Készítette:</b>{' '}
-            <i>
-              <a target="_blank" rel="noreferrer" href="https://kulcsarrudolf.com/">
-                Kulcsár Rudolf
-              </a>
-            </i>
-          </Typography>
-        </Grid>
+        <Footer />
       </Grid>
     </>
   );
 }
+
+const Footer = () => {
+  const classes = useStyles();
+
+  return (
+    <Grid item xs={12}>
+      <Typography className={classes.paper}>
+        <b>Készítette:</b>{' '}
+        <i>
+          <a target="_blank" rel="noreferrer" href="https://kulcsarrudolf.com/">
+            Kulcsár Rudolf
+          </a>
+        </i>
+      </Typography>
+    </Grid>
+  );
+};
 
 export default App;
