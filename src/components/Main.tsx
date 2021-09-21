@@ -3,7 +3,11 @@ import { useState, useEffect } from 'react';
 import { TextField, Grid, Paper, makeStyles, Typography, Button } from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { v4 as uuidv4 } from 'uuid';
 
 import ValuesTable from './ValuesTable';
@@ -85,6 +89,15 @@ const Main = () => {
                         value={formatDecimalNumber(currentValues[valueType])}
                         InputProps={{
                           readOnly: true,
+                          endAdornment: (
+                            <CopyToClipboard text={formatDecimalNumber(currentValues[valueType])}>
+                              <InputAdornment position="end">
+                                <IconButton edge="end">
+                                  <FileCopyIcon />
+                                </IconButton>
+                              </InputAdornment>
+                            </CopyToClipboard>
+                          ),
                         }}
                       />
                     </Grid>
