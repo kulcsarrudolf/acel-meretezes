@@ -60,6 +60,7 @@ const Main = () => {
               value={lambda}
               variant="outlined"
               type="number"
+              inputProps={{ step: '.1' }}
               onChange={handleChangeLambda}
             />
             <Alert severity="info">
